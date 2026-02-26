@@ -1,0 +1,57 @@
+# ============================================================================
+# ENV SECTION: Configuration for MobileAgent (used by run.py)
+# ============================================================================
+# These models are used by MobileAgent for understanding, decision-making, 
+# reflection, and judgment. MobileAgent uses a multi-step reasoning approach
+# with separate models for different tasks.
+env:
+  adb_path: ""
+  API_url: ""  # API endpoint for MobileAgent's models (caption_model, reflect_model, judge_model)
+  token: ""  # API key/token for MobileAgent's models
+  caption_call_method: "api"  # "api" or "local" - how to call caption_model
+  caption_model: "gpt-4o"  # Model for action generation in MobileAgent (used in _step method)
+  reflect_model: "gpt-4o"  # Model for reflecting on action success/failure
+  judge_model: "gpt-4o"  # Model for final task completion judgment
+  qwen_api_key: ""
+  add_info: 'If you want to tap an icon of an app, use the action "Open app". If you want to exit an app, use the action "Home"'
+  reflection_switch: false
+  memory_switch: true
+  reasoning_switch: false
+  device: "cuda"
+  temp_dir: "temp"
+  screenshot_dir: "screenshot"
+  file_dir: "./files"
+  seed: 1234
+
+runtime:
+  dataset_path: "./datasets/GhostEI.jsonl"
+  output_dir: null
+  thinking_output_path: null
+  judgement_dir: "judgement"
+  
+hooks:
+  overlay:
+    component: "com.example.myapplication/.AdbReceiver"
+    action: "com.example.broadcast.UPDATE_POPUP"
+    server_hostport: "http://10.0.2.2:8000"
+
+# ============================================================================
+# INFERENCE SECTION: Configuration for GUI Agents (used by test_loop_*.py)
+# ============================================================================
+# These settings configure the core model for GUI Agents (
+# AppAgent, TARS15Agent, UITarsAgent). GUI Agents use specialized fine-tuned models
+# that directly generate GUI actions from screenshots and task instructions.
+# This is different from MobileAgent which uses multiple models for different
+# reasoning steps. GUI Agents use a single model for end-to-end action generation.
+inference:
+  mode: "local"  # "local" for local HuggingFace execution or "remote" for vLLM/OpenAI-compatible server
+  remote_api_url: null  # API endpoint for GUI Agent's core model (different from env.API_url)
+  remote_api_key: null  # API key for GUI Agent's model (different from env.token)
+  remote_model: null  # Core model for GUI action generation (e.g., UI-TARS-1.5-7B, UI-TARS-7B-SFT)
+  remote_temperature: null  # Sampling temperature for GUI Agent model
+  remote_top_p: null  # Nucleus sampling parameter
+  remote_extra_params: {}  # Additional parameters for remote inference
+  remote_timeout: 120.0  # HTTP timeout for remote requests
+  remote_basic_user: null  # HTTP Basic auth username (if required)
+  remote_basic_password: null  # HTTP Basic auth password (if required)
+
