@@ -1,5 +1,9 @@
-# GhostEI-Bench: Do Mobile Agents Resilience to Environmental Injection in Dynamic On-Device Environments?
-
+<div align="center">
+  <h2 align="center">GhostEI-Bench: Do Mobile Agents Resilience to Environmental Injection in Dynamic On-Device Environments</h2>
+  <a href="https://arxiv.org/abs/2510.20333" style="display: inline-block; text-align: center;">
+      <img alt="arXiv" src="https://img.shields.io/badge/arXiv-2510.20333-b31b1b.svg?style=flat">
+  </a>
+</div>
 
 ## 📋 Table of Contents
 
@@ -242,10 +246,12 @@ This project is licensed under the MIT License,  - see the [LICENSE](./LICENSE) 
 ## Citation
 
 ```
-@article{chen2025ghostei,
-  title={GhostEI-Bench: Do Mobile Agents Resilience to Environmental Injection in Dynamic On-Device Environments?},
-  author={Chen, Chiyu and Song, Xinhao and Chai, Yunkai and Yao, Yang and Zhao, Haodong and Li, Lijun and Li, Jie and Teng, Yan and Liu, Gongshen and Wang, Yingchun},
-  journal={arXiv preprint arXiv:2510.20333},
-  year={2025}
+@inproceedings{
+chen2026ghosteibench,
+title={Ghost{EI}-Bench: Do Mobile Agent Resilience to Environmental Injection in Dynamic On-Device Environments?},
+author={Chiyu Chen and Xinhao Song and Yunkai Chai and Yang Yao and Haodong Zhao and Lijun Li and Jie Li and Yan Teng and Gongshen Liu and Yingchun Wang},
+booktitle={The Fourteenth International Conference on Learning Representations},
+year={2026},
+url={https://openreview.net/forum?id=2zi9z2geAO}
 }
 ```
